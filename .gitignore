@@ -1,3 +1,4 @@
-secure/
 
+/package-lock.json
+secure/
 node_modules/
