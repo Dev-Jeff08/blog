@@ -27,6 +27,8 @@ userSchema.pre('save', function(next) {
         bcrypt.genSalt(saltRounds, function(err, salt) {
             bcrypt.hash(String(user.password), salt, function(err, hash) {
                 user.password = hash;
+
+                next();
             })
         })
 
@@ -35,6 +37,4 @@ userSchema.pre('save', function(next) {
     };
 })
 
-const User = mongoose.model('User', userSchema);
-
-export default User;
+export const User = mongoose.model('User', userSchema);
